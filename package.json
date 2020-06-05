@@ -4,7 +4,7 @@
   "description": "Site baseado na semana NWL",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/MatthewOak/Ecoleta/issues"
   },
-  "homepage": "https://github.com/MatthewOak/Ecoleta#readme"
+  "homepage": "https://github.com/MatthewOak/Ecoleta#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
