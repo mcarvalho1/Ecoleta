@@ -8,7 +8,7 @@ const db = new sqlite3.Database("./src/database/database.db")
 module.exports = db
 //utilizar o objeto de banco de dados para operações
 db.serialize(() => {
-    criar tabela com comandos sql
+    //criar tabela com comandos sql
     db.run(`
          CREATE TABLE IF NOT EXISTS places (
              id  INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,7 +22,7 @@ db.serialize(() => {
          );
      `)
 
-    inserir dados na tabela
+    //inserir dados na tabela
     const query = `
          INSERT INTO places (
              image,
