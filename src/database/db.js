@@ -5,8 +5,9 @@ const sqlite3 = require("sqlite3").verbose()
 //criar o objeto que irá fazer interações no banco de dados
 const db = new sqlite3.Database("./src/database/database.db")
 
+module.exports = db
 //utilizar o objeto de banco de dados para operações
-// db.serialize( () =>{
+db.serialize( () =>{
 //     //criar tabela com comandos sql
 //     db.run(`
 //         CREATE TABLE IF NOT EXISTS places (
@@ -65,12 +66,12 @@ const db = new sqlite3.Database("./src/database/database.db")
 //     //     console.log(rows)
 //     // })
 
-//     // //deletar dado da tabela
-//     // db.run(`DELETE FROM places WHERE id = ?`, [1], function(err){
-//     //     if(err) {
-//     //         return console.log(err)
-//     //     }
+// //deletar dado da tabela
+// db.run(`DELETE FROM places WHERE id = ?`, [1], function(err){
+//     if(err) {
+//         return console.log(err)
+//     }
 
-//     //     console.log("Registro deletado com sucesso!")
-//     // })
+//     console.log("Registro deletado com sucesso!")
+//     })
 // })

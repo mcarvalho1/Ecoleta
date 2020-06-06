@@ -1,7 +1,10 @@
 const express = require("express")
 const server = express()
 
-// configurar pasta públuca
+//pegar o bd
+const db = require("./database/db")
+
+// configurar pasta pública
 server.use(express.static("public"))
 
 
@@ -22,11 +25,32 @@ server.get("/", (req, res) => {
 })
 
 server.get("/create-point", (req, res) => {
+ 
+    console.log(req.query)
+
+
     return res.render("create-point.html")
 })
 
+server.post("/savepoint", (req, res) => {
+    return res.send("Ok")
+})
+
 server.get("/search-result", (req, res) => {
-    return res.render("search-result.html")
+
+    //pegar os dados do banco de dados
+    db.all(`SELECT * FROM places`, function(err, rows) {
+        if(err) {
+            return console.log(err)
+        }
+        console.log("Aqui estão seus registros")
+
+        //quantidade de pontos cadastrados
+        const total = rows.length
+
+        //mostrar a página html com os dados do banco de dados
+        return res.render("search-result.html", {places: rows, total })
+    })
 })
 
 //ligar o servidor
